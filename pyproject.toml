@@ -1,0 +1,14 @@
+[tool.mypy]
+python_version = "3.9"
+strict = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "google.auth.transport.requests",
+    "google.oauth2.credentials",
+    "google_auth_oauthlib.flow",
+    "googleapiclient.discovery",
+    "googleapiclient.errors",
+]
+ignore_missing_imports = true
