@@ -37,10 +37,10 @@ init-maint:
 
 PIPTOOLS ?= python -m piptools
 PIPTOOLS_COMPILE_OPTS ?= --quiet --generate-hashes
+PIPTOOLS_COMPILE ?= CUSTOM_COMPILE_COMMAND="make build-reqs" ${PIPTOOLS} compile ${PIPTOOLS_COMPILE_OPTS}
 
 .PHONY: build-reqs
 build-reqs:
-	export CUSTOM_COMPILE_COMMAND="make build-reqs"
-	${PIPTOOLS} compile ${PIPTOOLS_COMPILE_OPTS} -o requirements/main.txt pyproject.toml
-	${PIPTOOLS} compile ${PIPTOOLS_COMPILE_OPTS} --extra dev -o requirements/dev.txt pyproject.toml
-	${PIPTOOLS} compile ${PIPTOOLS_COMPILE_OPTS} --extra maint -o requirements/maint.txt pyproject.toml
+	${PIPTOOLS_COMPILE} -o requirements/main.txt pyproject.toml
+	${PIPTOOLS_COMPILE} --extra dev -o requirements/dev.txt pyproject.toml
+	${PIPTOOLS_COMPILE} --extra maint -o requirements/maint.txt pyproject.toml
