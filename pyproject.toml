@@ -1,7 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "automate_jw"
+version = "0.0.1"
+authors = [
+  { name="John Whitlock", email="John-Whitlock@ieee.org"},
+]
+description = "jwhitlock's macOS automation scripts"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: MacOS X",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: MacOS :: MacOS X",
+    "Programing Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "requests",  # Request URLs
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",  # code formatting
+    "flake8",  # quick linter
+    "flake8-isort",  # check import order
+    "mypy",  # static type checking
+    "types-requests",  # type annotations for requests
+]
+maint = [
+    "pip-tools",  # build requirements files
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jwhitlock/automate-jw"
+"Bug Tracker" = "https://github.com/jwhitlock/automate-jw/issues"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+
 [tool.mypy]
 python_version = "3.9"
 strict = true
-
 
 [[tool.mypy.overrides]]
 module = [

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
+import re
 from argparse import ArgumentParser
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from json import dumps
-from typing import Mapping, Optional, TypeVar, Union
+from typing import Optional, Union
 from urllib.parse import urlparse
-import re
 
 import requests
 
@@ -27,7 +27,7 @@ class OmnifocusTask:
             trouble_chars = "/#:!@$"
             out_str = in_str
             for c in trouble_chars:
-                out_str = out_str.replace(c, f"\{c}")
+                out_str = out_str.replace(c, f"\\{c}")
             return out_str
 
         sections: list[str] = []

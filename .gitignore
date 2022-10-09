@@ -1,3 +1,4 @@
 __pycache__/
 credentials.json
+src/automate_jw.egg-info/
 token.json
