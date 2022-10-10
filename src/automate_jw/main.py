@@ -11,7 +11,7 @@ def get_process_url_parser() -> ArgumentParser:
     return parser
 
 
-def process_url_main():
+def process_url_main() -> int:
     parser = get_process_url_parser()
     args = parser.parse_args()
     try:

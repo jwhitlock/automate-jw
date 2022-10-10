@@ -191,7 +191,7 @@ class NoMatchingRule(Exception):
     """No rule matched the URL."""
 
 
-def process_url(url: Url, rules: Optional[RuleSet] = None) -> list(str):
+def process_url(url: Url, rules: Optional[RuleSet] = None) -> list[str]:
     if rules is None:
         rules = DEFAULT_RULES
     for ruleClass in rules:
