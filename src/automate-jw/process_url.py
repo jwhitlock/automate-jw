@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import re
-from argparse import ArgumentParser
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 from json import dumps
@@ -188,28 +187,16 @@ DEFAULT_RULES: RuleSet = [
 ]
 
 
-def main(url: Url, rules: Optional[RuleSet] = None) -> int:
+class NoMatchingRule(Exception):
+    """No rule matched the URL."""
+
+
+def process_url(url: Url, rules: Optional[RuleSet] = None) -> list(str):
     if rules is None:
         rules = DEFAULT_RULES
     for ruleClass in rules:
         rule = ruleClass(url)
         if rule.is_match:
-            print(f"omnifocus {rule.as_task().as_json()}")
-            return 0
-    print(f"No rule matched {url}")
-    return 1
-
-
-def get_parser() -> ArgumentParser:
-    parser = ArgumentParser(description="Process a URL for an OmniFocus task.")
-    parser.add_argument("url", help="URL to add as OmniFocus task")
-    return parser
-
-
-if __name__ == "__main__":
-    import sys
-
-    parser = get_parser()
-    args = parser.parse_args()
-    ret = main(**vars(args))
-    sys.exit(ret)
+            data = rule.as_task().as_json()
+            return [f"omnifocus {data}"]
+    raise NoMatchingRule(f"No rule matched {url}")

@@ -24,6 +24,9 @@ dependencies = [
     "requests",  # Request URLs
 ]
 
+[project.scripts]
+automate-jw-process-url = "automate_jw.main:process_url_main"
+
 [project.optional-dependencies]
 dev = [
     "black",  # code formatting
