@@ -1,4 +1,5 @@
 import re
+from html import unescape
 from urllib.parse import urlparse
 
 import requests
@@ -52,13 +53,13 @@ class SubstackArticle(RuleBase):
 
         author_match = self.author_re.search(page)
         if author_match:
-            author = author_match["author"]
+            author = unescape(author_match["author"])
         else:
             issues.append('Could not find `<meta name="author">`')
 
         title_match = self.title_re.search(page)
         if title_match:
-            title = title_match["title"]
+            title = unescape(title_match["title"])
         else:
             issues.append('Could not find `<meta property="og:title">`')
 
@@ -68,7 +69,7 @@ class SubstackArticle(RuleBase):
         else:
             issues.append('Could not find `<meta property="og:url">`')
 
-        task = f'Read \\"{title}\\" by {author}'
+        task = f'Read "{title}" by {author}'
         note = abs_url
         if issues:
             note += "\n\nPARSE ISSUES\n" + "\n".join(issues) + "\nEND OF PARSE ISSUES"
