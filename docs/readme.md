@@ -14,12 +14,11 @@ This project is an attempt to automate processing my inboxes. I spend about an h
 ## Current Workflow
 
 <!-- Local debugging of Mermaid -->
+<!--
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+-->
 
 ```mermaid
----
-title: Current Workflow
----
 flowchart TD
   copy_clipboard --> run_sc_send
   run_sc_send --> sc_get_urls

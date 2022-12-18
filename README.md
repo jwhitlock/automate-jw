@@ -36,7 +36,7 @@ I've got a "read later" workflow for Substack article:
 * Implement semantic scraper
 
 ## Documentation
-* [Overview](docs/overview.md) - Overview of the workflow
+* [Overview](docs/readme.md) - Overview of the workflow
 * Shortcuts
     - [Get a URL](docs/shortcuts/get-a-url.md) - Gets a URL from Safari or the Clipboard
     - [Send URL to Omnifocus](docs/shortcuts/send-url-to-omnifocus.md) - Processes a URL, creates an OmniFocus task
