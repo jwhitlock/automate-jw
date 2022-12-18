@@ -28,10 +28,9 @@ I've got a "read later" workflow for Substack article:
 
 ### To Do
 
+* Add tests to `automate-jw-process-url`
 * Sketch the planned workflow
 * Split out Omnifocus task creation as own Shortcut
-* Document the Shortcut and OmniFocus automation script
-* Add References section
 * Sketch semantic scraper ideas
 * Implement semantic scraper
 
@@ -40,3 +39,8 @@ I've got a "read later" workflow for Substack article:
 * Shortcuts
     - [Get a URL](docs/shortcuts/get-a-url.md) - Gets a URL from Safari or the Clipboard
     - [Send URL to Omnifocus](docs/shortcuts/send-url-to-omnifocus.md) - Processes a URL, creates an OmniFocus task
+
+## References
+* [Take Control of Shortcuts](https://www.takecontrolbooks.com/shortcuts/) by Rosemary Orchard - A great introduction to the tool
+* [Shortcuts User Guide](https://support.apple.com/guide/shortcuts-mac/welcome/mac) for Mac - Apple's documentation, not as good. I'm using features like running a shell script that only work on the Mac
+* [Omni-Automation: OmniFocus](https://www.omni-automation.com/omnifocus/) - Detailed guide for using OmniScript. [The Big Picture](https://www.omni-automation.com/omnifocus/big-picture.html) is a decent starting place.
