@@ -9,7 +9,6 @@ from .base import RuleBase
 
 
 class SubstackArticle(RuleBase):
-
     author_re = re.compile(
         r"""(?x)                        # Verbose mode
          <meta\s+                       # meta tag plus any whitespace
